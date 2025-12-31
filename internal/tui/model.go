@@ -26,8 +26,8 @@ type model struct {
 func NewModel(client api.MovieService) *model {
 	// movie.GetMovie("avatar")
 	columns := []table.Column{
-		{Title: "Key", Width: 1},
-		{Title: "Value", Width: 3},
+		{Title: "Key", Width: 10},
+		{Title: "Value", Width: 10},
 	}
 
 	rows := []table.Row{}
@@ -132,6 +132,9 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		case "ctrl+c":
 			return m, tea.Quit
+
+		case "n":
+			return m, func() tea.Msg { return NavigateToSecondMsg{} }
 		}
 	}
 	m.table, tableCmd = m.table.Update(msg)

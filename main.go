@@ -28,7 +28,8 @@ func main() {
 	logger.Log.Info("Config Loaded Successfully")
 
 	client := api.NewClient(cfg)
-	m := tui.NewModel(client)
+	m := tui.RootScreen(client)
+	// m := tui.NewModel(client)
 	p := tea.NewProgram(m, tea.WithAltScreen())
 	if _, err := p.Run(); err != nil {
 		logger.Log.Error("Ran into an error", "error", err)
