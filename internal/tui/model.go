@@ -134,7 +134,9 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 
 		case "n":
-			return m, func() tea.Msg { return NavigateToSecondMsg{} }
+			if m.active == 1 {
+				return m, func() tea.Msg { return NavigateToSecondMsg{} }
+			}
 		}
 	}
 	m.table, tableCmd = m.table.Update(msg)
