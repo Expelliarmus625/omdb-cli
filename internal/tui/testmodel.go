@@ -1,7 +1,7 @@
 package tui
 
 import (
-	"github.com/Expelliamus625/omdb-cli/internal/logger"
+	// "github.com/Expelliamus625/omdb-cli/internal/logger"
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
@@ -45,6 +45,6 @@ func (lm *loaderModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (lm *loaderModel) View() string {
 	content := lm.spinner.View() + " Coming soon to an Theatre near you..."
-	logger.Log.Info("Height and width of loaderModel", "height", lm.height, "width", lm.width)
+	// logger.Log.Info("Height and width of loaderModel", "height", lm.height, "width", lm.width)
 	return lipgloss.Place(lm.width, lm.height, lipgloss.Center, lipgloss.Center, content)
 }
